@@ -88,4 +88,46 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
+router.post('/:id/friends/:friendId', async (req, res) => {
+    try {
+        const { id, friendId } = req.params;
+
+        const user = await User.findById(id);
+        const friend = await User.findById(friendId);
+
+        if (!user || !friend) {
+            return res.status(404).send({ message: 'User / friend does not exist!' });
+        }
+
+        user.friends.push(friendId);
+        await user.save();
+
+        res.status(201).send({ message: 'Friend added successfully', user });
+    } catch (error) {
+        res.status(500).send({ message: 'An error occurred', error });
+    }
+});
+
+router.delete('/:id/friends/:friendId', async (req, res) => {
+    try {
+        const { id, friendId } = req.params;
+
+        const user = await User.findById(id);
+    
+        if (!user) {
+          return res.status(404).send({ message: 'User not found' });
+        }
+    
+        user.friends = user.friends.filter(id => id.toString() !== friendId);
+        await user.save();
+    
+
+        res.status(201).send({ message: 'Friend removed successfully', user });
+    } catch (error) {
+        res.status(500).send({ message: 'An error occurred', error });
+    }
+});
+
+
+
 module.exports = router;
