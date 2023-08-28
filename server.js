@@ -15,6 +15,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1/social-network-
 app.use(routes);
 
 app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}!`);
+  console.log(`App running on port ${PORT} !`);
 });
 
