@@ -74,6 +74,9 @@ This project is licensed under the MIT License.
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+## Video
+[Watch Video](https://watch.screencastify.com/v/hfvicOQ975Idc0k2z4RE)
+
 ## Support
 
 For any questions or support, please contact the developer at [rdbz49ers@gmail.com](mailto:rdbz49ers@gmail.com).
